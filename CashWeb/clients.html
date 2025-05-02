@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="clients">Clients</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div class="lang-switch">
+        <button id="lang-en" class="btn-sm">ENG</button>
+        <button id="lang-ru" class="btn-sm">RUS</button>
+    </div>
+
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1 data-i18n="cash_gap">Cash Gap</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="icon">📊</span><span data-i18n="dashboard">Dashboard</span></a></li>
+                <li><a href="settings.html"><span class="icon">⚙️</span><span data-i18n="settings">Settings</span></a></li>
+                <li><a href="integrations.html"><span class="icon">🔄</span><span data-i18n="integrations">Integrations</span></a></li>
+                <li><a href="alerts.html"><span class="icon">🔔</span><span data-i18n="alerts">Alerts</span></a></li>
+                <li class="active"><a href="clients.html"><span class="icon">👥</span><span data-i18n="clients">Clients</span></a></li>
+                <li><a href="payments.html"><span class="icon">📅</span><span data-i18n="payments">Payments</span></a></li>
+                <li><a href="https://t.me/cache_pulse_bot" target="_blank">
+                    <span class="icon">🤖</span>
+                    <span data-i18n="telegram_bot">Telegram Bot</span>
+                  </a></li>
+                <li class="logout"><a href="login.html"><span class="icon">🚪</span><span data-i18n="logout">Logout</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <header>
+                <div class="header-content">
+                    <h2 data-i18n="clients">Clients</h2>
+                </div>
+            </header>
+
+            <div class="clients-section">
+                <div class="section-header">
+                    <h3 data-i18n="client_list">Client List</h3>
+                    <input type="text" id="client-search" class="search-box" placeholder="Search clients..." data-i18n="search_placeholder" />
+                </div>
+
+                <table class="clients-table">
+                    <thead>
+                        <tr>
+                            <th data-i18n="client_name">Client Name</th>
+                            <th data-i18n="due_date">Due Date</th>
+                            <th data-i18n="actual_date">Actual Payment Date</th>
+                            <th data-i18n="last_payment">Last Payment</th>
+                            <th data-i18n="status">Status</th>
+                            <th data-i18n="debt_amount">Debt</th>
+                            <th data-i18n="days_overdue">Days Overdue</th>
+                        </tr>
+                    </thead>
+                    <tbody id="clients-table-body">
+                        <!-- Clients dynamically injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/clients.js"></script>
+</body>
+</html>

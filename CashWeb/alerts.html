@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Gap Analysis - Alerts</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1 data-i18n="cash_gap">Cash Gap</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="icon">📊</span><span data-i18n="dashboard">Dashboard</span></a></li>
+                <li><a href="settings.html"><span class="icon">⚙️</span><span data-i18n="settings">Settings</span></a></li>
+                <li><a href="integrations.html"><span class="icon">🔄</span><span data-i18n="integrations">Integrations</span></a></li>
+                <li class="active"><a href="alerts.html"><span class="icon">🔔</span><span data-i18n="alerts">Alerts</span></a></li>
+                <li><a href="clients.html"><span class="icon">👥</span><span data-i18n="clients">Clients</span></a></li>
+                <li><a href="payments.html"><span class="icon">📅</span><span data-i18n="payments">Payments</span></a></li>
+                <li><a href="https://t.me/cache_pulse_bot" target="_blank">
+                    <span class="icon">🤖</span>
+                    <span data-i18n="telegram_bot">Telegram Bot</span>
+                  </a></li>
+                <li class="logout"><a href="login.html"><span class="icon">🚪</span><span data-i18n="logout">Logout</span></a></li>
+                
+            </ul>
+            
+        </nav>
+
+        <main class="content">
+            <header>
+                <div class="header-content">
+                    <h2 data-i18n="alerts">Alerts</h2>
+                    <div class="user-info">
+                        <span id="username">John Doe</span>
+                        <div class="avatar">JD</div>
+                    </div>
+                </div>
+                <div class="lang-switch">
+                    <button id="lang-en" class="btn-sm">ENG</button>
+                    <button id="lang-ru" class="btn-sm">RUS</button>
+                </div>
+            </header>
+
+            <div class="alerts-container">
+                <div class="alerts-header">
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="status-filter" data-i18n="status">Status:</label>
+                            <select id="status-filter">
+                                <option value="all" data-i18n="all">All</option>
+                                <option value="active" data-i18n="active">Active</option>
+                                <option value="resolved" data-i18n="resolved">Resolved</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="type-filter" data-i18n="type">Type:</label>
+                            <select id="type-filter">
+                                <option value="all" data-i18n="all_types">All Types</option>
+                                <option value="critical" data-i18n="critical">Critical</option>
+                                <option value="warning" data-i18n="warning">Warning</option>
+                                <option value="info" data-i18n="info">Information</option>
+                            </select>
+                        </div>
+                        <div class="filter-group date-filter">
+                            <label for="date-range" data-i18n="data_range">Date Range:</label>
+                            <input type="date" id="date-from" name="date-from">
+                            <span data-i18n="to">to</span>
+                            <input type="date" id="date-to" name="date-to">
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn btn-primary" id="create-alert-rule" data-i18n="create_alert_rule">Create Alert Rule</button>
+                    </div>
+                </div>
+
+                <div class="alerts-list" id="alerts-container">
+                    
+                </div>
+
+                <div class="pagination">
+                    <button class="btn btn-icon" disabled>←</button>
+                    <span data-i18n="page">Page 1 of 1</span>
+                    <button class="btn btn-icon" disabled>→</button>
+                </div>
+            </div>
+
+            
+        </main>
+    </div>
+
+    <div class="modal" id="create-rule-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-i18n="create_alert_rule">Create Alert Rule</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="alert-rule-form">
+                    <div class="form-group">
+                        <label for="rule-name" data-i18n="rule_name">Rule Name</label>
+                        <input type="text" id="rule-name" placeholder="Enter rule name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="rule-type" data-i18n="alert_type">Alert Type</label>
+                        <select id="rule-type" required>
+                            <option value="cash_gap" data-i18n="cash_gap">Cash Gap</option>
+                            <option value="cash_inflow" data-i18n="cash_inflow">Cash Inflow</option>
+                            <option value="cash_outflow" data-i18n="cash_outflow">Cash Outflow</option>
+                            <option value="coverage" data-i18n="cash_coverage">Cash Coverage</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="rule-severity" data-i18n="severity">Severity</label>
+                        <div class="form-group">
+                            <label for="severity-info" data-i18n="severity_info">Info Threshold</label>
+                            <input type="number" id="severity-info" placeholder="e.g. 5000">
+                          </div>
+                          <div class="form-group">
+                            <label for="severity-warning" data-i18n="severity_warning">Warning Threshold</label>
+                            <input type="number" id="severity-warning" placeholder="e.g. 3000">
+                          </div>
+                          <div class="form-group">
+                            <label for="severity-critical" data-i18n="severity_critical">Critical Threshold</label>
+                            <input type="number" id="severity-critical" placeholder="e.g. 1000">
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="notification_channels">Notification Channels</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="notify-email" checked>
+                                <span class="checkmark"></span>
+                                <span data-i18n="email">Email</span>
+                            </label>
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="notify-telegram">
+                                <span class="checkmark"></span>
+                                <span data-i18n="telegram">Telegram</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" data-i18n="Create Alert Rule">Create Alert Rule</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/alerts.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html>

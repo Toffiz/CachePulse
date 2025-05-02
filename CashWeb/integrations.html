@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Gap Analysis - Integrations</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1>Cash Gap</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="icon">📊</span><span data-i18n="dashboard">Dashboard</span></a></li>
+                <li><a href="settings.html"><span class="icon">⚙️</span><span data-i18n="settings">Settings</span></a></li>
+                <li class="active"><a href="integrations.html"><span class="icon">🔄</span><span data-i18n="integrations">Integrations</span></a></li>
+                <li><a href="alerts.html"><span class="icon">🔔</span><span data-i18n="alerts">Alerts</span></a></li>
+                <li><a href="clients.html"><span class="icon">👥</span><span data-i18n="clients">Clients</span></a></li>
+                <li><a href="payments.html"><span class="icon">📅</span><span data-i18n="payments">Payments</span></a></li>
+                <li><a href="https://t.me/cache_pulse_bot" target="_blank">
+                    <span class="icon">🤖</span>
+                    <span data-i18n="telegram_bot">Telegram Bot</span>
+                  </a></li>
+                <li class="logout"><a href="login.html"><span class="icon">🚪</span><span data-i18n="logout">Logout</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <header>
+                <div class="header-content">
+                    <h2>Data Integrations</h2>
+                    <div class="user-info">
+                        <span id="username">John Doe</span>
+                        <div class="avatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="integrations-container">
+                <div class="section-header">
+                    <h3>Connected Data Sources</h3>
+                </div>
+
+                <div class="integration-card connected" id="google-sheets">
+                    <div class="integration-header">
+                        <div class="integration-icon">
+                            <img src="/api/placeholder/48/48" alt="Google Sheets Icon">
+                        </div>
+                        <div class="integration-info">
+                            <h4>Google Sheets</h4>
+                            <span class="status connected">Connected</span>
+                        </div>
+                    </div>
+                    <div class="integration-body">
+                        <p>Link your Google Sheets containing financial data for cash flow analysis.</p>
+                        <div class="connected-info">
+                            <div class="sheet-info">
+                                <span class="sheet-name" id="connected-sheet-name">Financial Data Q2 2025</span>
+                                <span class="sheet-date" id="connected-sheet-date">Last synced: 10 minutes ago</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="sheet-url">Paste Google Sheet URL:</label>
+                                <input type="text" id="sheet-url" placeholder="https://docs.google.com/spreadsheets/d/your-sheet-id" />
+                                <button class="btn btn-sm btn-outline" id="connect-sheet">Connect</button>
+                            </div>                              
+                            <div class="sheet-actions">
+                                <button class="btn btn-outline" id="refresh-sheets">Refresh</button>
+                                <button class="btn btn-outline-danger" id="disconnect-sheets">Disconnect</button>
+                            </div>
+                        </div>
+                        <div class="sheet-config">
+                            <h5>Sheet Configuration</h5>
+                            <form id="sheet-config-form">
+                                <div class="form-group">
+                                    <label for="cash-in-sheet">Cash Inflow Sheet</label>
+                                    <select id="cash-in-sheet" required>
+                                        <option value="cash_in" selected>Cash In</option>
+                                        <option value="revenue">Revenue</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cash-out-sheet">Cash Outflow Sheet</label>
+                                    <select id="cash-out-sheet" required>
+                                        <option value="cash_out" selected>Cash Out</option>
+                                        <option value="expenses">Expenses</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Configuration</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Available Integrations</h3>
+                </div>
+
+                <div class="integration-grid">
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <div class="integration-icon">
+                                <img src="/api/placeholder/48/48" alt="QuickBooks Icon">
+                            </div>
+                            <div class="integration-info">
+                                <h4>QuickBooks</h4>
+                                <span class="status disconnected">Not Connected</span>
+                            </div>
+                        </div>
+                        <div class="integration-body">
+                            <p>Connect your QuickBooks account to import financial data automatically.</p>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>
+
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <div class="integration-icon">
+                                <img src="/api/placeholder/48/48" alt="Xero Icon">
+                            </div>
+                            <div class="integration-info">
+                                <h4>Xero</h4>
+                                <span class="status disconnected">Not Connected</span>
+                            </div>
+                        </div>
+                        <div class="integration-body">
+                            <p>Import your financial data directly from Xero accounting software.</p>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>
+
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <div class="integration-icon">
+                                <img src="/api/placeholder/48/48" alt="Excel Icon">
+                            </div>
+                            <div class="integration-info">
+                                <h4>Excel Upload</h4>
+                                <span class="status disconnected">Not Connected</span>
+                            </div>
+                        </div>
+                        <div class="integration-body">
+                            <p>Upload Excel files containing your financial data.</p>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>
+
+                    <div class="integration-card">
+                        <div class="integration-header">
+                            <div class="integration-icon">
+                                <img src="/api/placeholder/48/48" alt="CSV Icon">
+                            </div>
+                            <div class="integration-info">
+                                <h4>CSV Upload</h4>
+                                <span class="status disconnected">Not Connected</span>
+                            </div>
+                        </div>
+                        <div class="integration-body">
+                            <p>Upload CSV files containing your financial data.</p>
+                            <button class="btn btn-primary">Connect</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="google-sheets-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Connect Google Sheets</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="google-sheets-form">
+                    <div class="form-group">
+                        <label for="sheet-url">Google Sheet URL</label>
+                        <input type="text" id="sheet-url" placeholder="https://docs.google.com/spreadsheets/d/..." required>
+                    </div>
+                    <div class="form-info">
+                        <p>Make sure your Google Sheet is shared with our service account: <code>cash-gap-app@service.com</code></p>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Connect Sheet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/integrations.js"></script>
+</body>
+</html>

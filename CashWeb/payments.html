@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="payments">Payments</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Include FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    <div class="lang-switch">
+        <button id="lang-en" class="btn-sm">ENG</button>
+        <button id="lang-ru" class="btn-sm">RUS</button>
+    </div>
+
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <h1 data-i18n="cash_gap">Cash Gap</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><span class="icon">📊</span><span data-i18n="dashboard">Dashboard</span></a></li>
+                <li><a href="settings.html"><span class="icon">⚙️</span><span data-i18n="settings">Settings</span></a></li>
+                <li><a href="integrations.html"><span class="icon">🔄</span><span data-i18n="integrations">Integrations</span></a></li>
+                <li><a href="alerts.html"><span class="icon">🔔</span><span data-i18n="alerts">Alerts</span></a></li>
+                <li><a href="clients.html"><span class="icon">👥</span><span data-i18n="clients">Clients</span></a></li>
+                <li class="active"><a href="payments.html"><span class="icon">📅</span><span data-i18n="payments">Payments</span></a></li>
+                <li>
+                    <a href="https://t.me/cache_pulse_bot" target="_blank">
+                        <span class="icon">🤖</span>
+                        <span data-i18n="telegram_bot">Telegram Bot</span>
+                      </a>
+                </li>
+                <li class="logout"><a href="login.html"><span class="icon">🚪</span><span data-i18n="logout">Logout</span></a></li>
+            </ul>
+        </nav>
+
+        <main class="content">
+            <header>
+                <div class="header-content">
+                    <h2 data-i18n="payments">Payments</h2>
+                </div>
+            </header>
+
+            <div class="payments-section">
+                <div class="section-header">
+                    <h3 data-i18n="upcoming_payments">Upcoming Mandatory Payments</h3>
+                    <input type="text" id="payment-search" class="search-box" placeholder="Search payments..." data-i18n="search_placeholder" />
+                </div>
+
+                <div id="calendar"></div>
+            </div>
+            
+        </main>
+    </div>
+
+
+      
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    
+    <script src="js/i18n.js"></script>
+    <script src="js/payments.js"></script>
+</body>
+</html>
